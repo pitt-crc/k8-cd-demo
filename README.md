@@ -118,7 +118,11 @@ Finally, deploy the application:
 | Revision              | `HEAD`                                   | 
 | Path                  | `manifests`                              | 
 | Cluster Url           | Select `Name` anc select `in-cluster`    | 
-| Namespace             | `demo-nginx`                             | 
+| Namespace             | `demo-nginx`                             |
+
+Argo will automatically create the namespace and provision the resources defined in the manifest.
+If you're wondering what happens to the namespace when an app is destroyed, the answer is nothing.
+Argo will not delete the empty namespace (see [this relevant issue](https://github.com/argoproj/argo-cd/issues/7875)).
 
 ## Synchronize Changes
 
