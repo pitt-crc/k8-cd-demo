@@ -91,8 +91,8 @@ namespace you created:
 1. Navigate to **Settings → Projects** and click **New Project**.
 2. Enter a descriptive project name and click **Create**. You will be redirected to the project settings page.
 3. Under Scoped Repositories, add your forked repository.
-4. Under Destinations, add the cluster server and the namespace `demo`.
-5. Under Cluster Resource Allow List, allow all by specifying `*` for the kind and group.
+4. Under Destinations, add the cluster server and the namespace `demo-*` (note the wildcard).
+5. Under Cluster Resource Allow List, add an entry for kind `Namespace` with an empty group.
 
 Finally, deploy the application:
 
@@ -108,7 +108,7 @@ Finally, deploy the application:
 
 | Field                 | Value                                    |
 |-----------------------|------------------------------------------|
-| Application Name      | `demo app`                               | 
+| Application Name      | `nginx`                                  | 
 | Project Name          | The name of the project you just created | 
 | Sync Policy           | `Automatic`                              | 
 | Prune Resources       | Checked                                  | 
@@ -118,7 +118,7 @@ Finally, deploy the application:
 | Revision              | `HEAD`                                   | 
 | Path                  | `manifests`                              | 
 | Cluster Url           | Select `Name` anc select `in-cluster`    | 
-| Namespace             | `demo`                                   | 
+| Namespace             | `demo-nginx`                             | 
 
 ## Synchronize Changes
 
