@@ -92,6 +92,7 @@ namespace you created:
 2. Enter a descriptive project name and click **Create**. You will be redirected to the project settings page.
 3. Under Scoped Repositories, add your forked repository.
 4. Under Destinations, add the cluster server and the namespace `demo`.
+5. Under Cluster Resource Allow List, allow all by specifying `*` for the kind and group.
 
 Finally, deploy the application:
 
