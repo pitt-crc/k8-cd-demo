@@ -146,3 +146,10 @@ To tear down the Minikube cluster and remove all associated containers and data,
 ```bash
 minikube delete -p k8demo
 ```
+
+## Future Work
+
+Adding RBAC:
+
+- [argo docs](https://argo-cd.readthedocs.io/en/stable/operator-manual/rbac/)
+- [Medium article on LDAP](https://medium.com/@dast04/setting-up-argocd-ldap-authentication-rbac-2024-50c0d8135713)
