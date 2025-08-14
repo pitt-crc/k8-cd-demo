@@ -15,7 +15,8 @@ Links are provided the install documentation for each utility.
 ## Cluster Setup
 
 Before deploying any applications, we will create a multi-node Kubernetes cluster using Minikube with Docker.
-This will create a Kubernetes cluster using virtualized containers instead of physical nodes.
+This will create a cluster using virtualized containers instead of physical nodes.
+
 The following command will create a cluster `k8demo` with one control plane node and three worker nodes.
 
 ```bash
@@ -37,14 +38,14 @@ kubectl config use-context k8demo
 
 ## Deploying Argo CD
 
-Argo CD is installed in a dedicated namespace using the official kubernetes installation mainfest.
+Argo CD is installed in a dedicated namespace using the official kubernetes installation manifest.
 
 ```bash
 kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 ```
 
-Verify the installed resources.
+After installation, verify the created resources and wait for them all to be listed as ready.
 
 ```bash
 kubectl get all -n argocd
@@ -52,15 +53,17 @@ kubectl get all -n argocd
 
 Finally, enable access to the ArgoCD dashboard using port forwarding.
 The following command will run in the foreground, exposing the Argo web interface on local port 8080.
-Accessing the application may require waiving an `Insecure Connection` warning from your browser due to
-the lack of a TLS certificate.
+This command will run in the foreground, so it is recomended to run it in a dedicated terminal session or
+to pipe it into the background.
 
 ```bash
 kubectl port-forward svc/argocd-server -n argocd 8080:443
 ```
 
 The web platform should now be accessible at port 8080.
-To log in, use the username admin and retrieve the initial password with the following command:
+To log in, use the username admin and retrieve the initial password with the command below.
+Accessing the application may require waiving an `Insecure Connection` warning from your browser due to
+the lack of a TLS certificate.
 
 ```bash
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo
