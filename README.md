@@ -13,7 +13,7 @@ Links are provided the install documentation for each utility.
 - [argocd CLI](https://argo-cd.readthedocs.io/en/stable/cli_installation/)
 
 This demo will also include using git operations to trigger automatic deployments.
-You will need a forked copy of this repository. 
+You will need a forked copy of this repository.
 
 ## Cluster Setup
 
@@ -74,13 +74,7 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 
 ## Deploying an Application
 
-Before deploying an example application, create a dedicated namespace for the demo application:
-
-```bash
-kubectl create namespace demo
-```
-
-Next, add the repository you forked as an approved source in ArgoCD:
+Add the repository you forked as an approved source in ArgoCD:
 
 1. Navigate to **settings > Projects** and clicking **+ Connect Repo**.
 2. Fill out the form using the values listed below, leaving all other fields blank.
@@ -97,7 +91,7 @@ namespace you created:
 1. Navigate to **Settings → Projects** and click **New Project**.
 2. Enter a descriptive project name and click **Create**. You will be redirected to the project settings page.
 3. Under Scoped Repositories, add your forked repository.
-4. Under Destinations, add the cluster server and the namespace demo.
+4. Under Destinations, add the cluster server and the namespace `demo`.
 
 Finally, deploy the application:
 
@@ -111,21 +105,24 @@ Finally, deploy the application:
 2. Click + New App and fill out the form using the values provided below.
    The dropdown options will be limited to those included in the selected project.
 
-| Field            | Value                                     |
-|------------------|-------------------------------------------|
-| Application Name | `demo app`                                | 
-| Project Name     | The name of the project you just created. | 
-| Sync Policy      | `Automatic`                               | 
-| Prune Resources  | Checked                                   | 
-| Self Heal        | Checked                                   | 
-| Repository Url   | The repository you configured in argocd.  | 
-| Revision         | `HEAD`                                    | 
-| Path             | `manifests`                               | 
-| Cluster Url      | Select `Name` anc select `in-cluster`.    | 
+| Field                 | Value                                    |
+|-----------------------|------------------------------------------|
+| Application Name      | `demo app`                               | 
+| Project Name          | The name of the project you just created | 
+| Sync Policy           | `Automatic`                              | 
+| Prune Resources       | Checked                                  | 
+| Self Heal             | Checked                                  | 
+| Auto-Create Namespace | Checked                                  | 
+| Repository Url        | The repository you configured in argocd  | 
+| Revision              | `HEAD`                                   | 
+| Path                  | `manifests`                              | 
+| Cluster Url           | Select `Name` anc select `in-cluster`    | 
+| Namespace             | `demo`                                   | 
 
 ## Synchronize Changes
 
-For applications with an automatic synchronization strategy, ArgoCD will automatically poll git and pull and manifest changes.
+For applications with an automatic synchronization strategy, ArgoCD will automatically poll git and pull and manifest
+changes.
 By default, this polling occurs every 3 minutes.
 
 To trigger a change, edit the example manifest under by increasing the number of replicas in the following line:
