@@ -1,5 +1,7 @@
 # Continuous Deployment on Kubernetes (Demo)
 
+This repository demonstrates the deployment of ArgoCD against a local Minikube cluster.
+
 ## Prerequisites
 
 The following utilities are required.
