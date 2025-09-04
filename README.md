@@ -78,7 +78,7 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 
 Add the repository you forked as an approved source in ArgoCD:
 
-1. Navigate to **settings > Projects** and clicking **+ Connect Repo**.
+1. Navigate to **settings > Repositories** and click **+ Connect Repo**.
 2. Fill out the form using the values listed below, leaving all other fields blank.
 
 | Field          | Value                              |
