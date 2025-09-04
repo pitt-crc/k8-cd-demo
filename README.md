@@ -5,7 +5,7 @@ This repository demonstrates the deployment of ArgoCD against a local Minikube c
 ## Prerequisites
 
 The following utilities are required.
-Links are provided the install documentation for each utility.
+Links are provided to the install documentation for each utility.
 
 **Prerequisites**
 
